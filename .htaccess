@@ -1,21 +1,22 @@
+DirectoryIndex index.php public/index.php
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteBase /hr/
 
-    # Forward root and sub-requests to public/
-    RewriteCond %{REQUEST_URI} !^/public/
-    RewriteRule ^$ public/index.php [L]
+    # Disable directory indexing
+    Options -Indexes
 
-    RewriteCond %{REQUEST_URI} !^/public/
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*)$ public/$1 [L]
+    # Rewrite root and subfolder requests to public/
+    RewriteRule ^$ public/ [L]
+    RewriteRule ^((?!public/).*)$ public/$1 [L]
 </IfModule>
 
-# Security: Block direct access to sensitive configuration files
-<FilesMatch "^\.(env|git|editorconfig)|composer\.(json|lock)|package(-lock)?\.json|phpunit\.xml|vite\.config\.js">
+# Security: Block sensitive files
+<FilesMatch "^\.(env|git|cpanel)|composer\.(json|lock)|package(-lock)?\.json">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
-# Block access to internal application directories if deployed directly to web root
-RedirectMatch 403 ^/(database|storage|bootstrap|app|routes|config|tests|Modules)/
+# Block access to internal directories
+RedirectMatch 403 ^/hr/(app|bootstrap|config|database|resources|routes|storage|tests|Modules)/
