@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Payroll\Http\Controllers\PayrollController;
 
+// Payroll routes are centrally managed in routes/web.php
 Route::group([], function () {
-    Route::resource('payrolls', PayrollController::class)->names('payroll');
+    // Route::resource('payrolls', PayrollController::class)->names('payroll');
 });

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Recruitment\Http\Controllers\RecruitmentController;
 
+// Recruitment routes are centrally managed in routes/web.php
 Route::group([], function () {
-    Route::resource('recruitments', RecruitmentController::class)->names('recruitment');
+    // Route::resource('recruitments', RecruitmentController::class)->names('recruitment');
 });

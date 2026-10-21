@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Attendance\Http\Controllers\AttendanceController;
 
+// Attendance routes are centrally managed in routes/web.php
 Route::group([], function () {
-    Route::resource('attendances', AttendanceController::class)->names('attendance');
+    // Route::resource('attendances', AttendanceController::class)->names('attendance');
 });

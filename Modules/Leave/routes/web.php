@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Leave\Http\Controllers\LeaveController;
 
+// Leave routes are centrally managed in routes/web.php
 Route::group([], function () {
-    Route::resource('leaves', LeaveController::class)->names('leave');
+    // Route::resource('leaves', LeaveController::class)->names('leave');
 });
