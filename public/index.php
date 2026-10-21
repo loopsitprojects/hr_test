@@ -5,6 +5,12 @@ use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
 
+// Normalize SCRIPT_NAME and PHP_SELF for /hr subdirectory routing
+if (isset($_SERVER['REQUEST_URI']) && (str_starts_with($_SERVER['REQUEST_URI'], '/hr/') || $_SERVER['REQUEST_URI'] === '/hr')) {
+    $_SERVER['SCRIPT_NAME'] = '/hr/index.php';
+    $_SERVER['PHP_SELF'] = '/hr/index.php';
+}
+
 // Determine if the application is in maintenance mode...
 if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
     require $maintenance;
