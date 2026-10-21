@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+
+/* Base Dark Mode Root Styling */
+html.dark {
+    color-scheme: dark;
+    background-color: #0b1329;
+}
+
+.dark body {
+    background-color: #0b1329;
+    color: #f8fafc;
+}
+
+/* Global Form Inputs Dark Support */
+.dark input[type="text"],
+.dark input[type="number"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="date"],
+.dark input[type="file"],
+.dark select,
+.dark textarea {
+    background-color: #1e2d4d !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: #64748b !important;
+}
+
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+    border-color: #3b82f6 !important;
+    ring-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Remove Tailwind Forms default SVG dropdown arrow when custom icon / appearance-none is used */
+select.appearance-none,
+select[class*="appearance-none"],
+.appearance-none {
+    background-image: none !important;
+}
+
+/* Global Dark Mode Surface Overrides for Cards, Panels & Backgrounds */
+html.dark .bg-white {
+    background-color: #152038;
+    border-color: #1e293b;
+    color: #f8fafc;
+}
+
+html.dark .bg-gray-50,
+html.dark .bg-slate-50,
+html.dark .bg-slate-50\/40,
+html.dark .bg-slate-50\/50,
+html.dark .bg-slate-50\/60,
+html.dark .bg-slate-50\/70,
+html.dark .bg-slate-50\/80 {
+    background-color: #1a2744 !important;
+    border-color: #1e293b !important;
+    color: #cbd5e1;
+}
+
+html.dark .bg-slate-100,
+html.dark .bg-slate-100\/90,
+html.dark .bg-slate-100\/80,
+html.dark .bg-slate-100\/70,
+html.dark .bg-slate-100\/60,
+html.dark .bg-gray-100,
+html.dark .bg-gray-100\/90,
+html.dark .bg-gray-100\/80,
+html.dark .bg-slate-200,
+html.dark .bg-gray-200 {
+    background-color: #1a2744 !important;
+    border-color: #2e3e60 !important;
+    color: #cbd5e1;
+}
+
+/* =========================================================
+   DARK MODE TEXT VISIBILITY & CONTRAST (Universal Fix)
+   ========================================================= */
+
+/* Primary text in dark mode: pure crisp high-contrast */
+html.dark .text-slate-900,
+html.dark .text-gray-900,
+html.dark .text-slate-800,
+html.dark .text-gray-800,
+html.dark .text-slate-700,
+html.dark .text-gray-700 {
+    color: #f8fafc !important;
+}
+
+/* Medium text in dark mode: bright silver-white */
+html.dark .text-slate-600,
+html.dark .text-gray-600,
+html.dark .text-zinc-600 {
+    color: #e2e8f0 !important;
+}
+
+/* All secondary, muted, grey & slate text in dark mode: clearly readable Slate-300 */
+html.dark .text-slate-500,
+html.dark .text-gray-500,
+html.dark .text-zinc-500,
+html.dark .text-slate-400,
+html.dark .text-gray-400,
+html.dark .text-zinc-400,
+html.dark [class*="dark:text-slate-400"],
+html.dark [class*="dark:text-slate-500"],
+html.dark [class*="dark:text-gray-400"],
+html.dark [class*="dark:text-gray-500"] {
+    color: #cbd5e1 !important;
+}
+
+html.dark .border-slate-200,
+html.dark .border-gray-200,
+html.dark .border-slate-100,
+html.dark .border-gray-100,
+html.dark .border-slate-200\/80,
+html.dark .border-slate-200\/90,
+html.dark .border-slate-200\/60 {
+    border-color: #1e293b !important;
+}
+
+/* Dark mode specific badge & pill background fixes */
+html.dark .bg-blue-50 {
+    background-color: rgba(30, 58, 138, 0.4) !important;
+    color: #93c5fd !important;
+}
+
+html.dark .bg-amber-50 {
+    background-color: rgba(120, 53, 15, 0.4) !important;
+    color: #fde047 !important;
+}
+
+html.dark .bg-emerald-50 {
+    background-color: rgba(6, 78, 59, 0.4) !important;
+    color: #6ee7b7 !important;
+}
+
+html.dark .bg-purple-50 {
+    background-color: rgba(88, 28, 135, 0.4) !important;
+    color: #d8b4fe !important;
+}
+
+html.dark .bg-pink-50 {
+    background-color: rgba(131, 24, 67, 0.4) !important;
+    color: #f472b6 !important;
+}
+
+html.dark .bg-rose-50 {
+    background-color: rgba(136, 19, 55, 0.4) !important;
+    color: #fda4af !important;
+}
+
+/* Global Data Tables Dark Support */
+.dark table thead th,
+.dark table th {
+    background-color: #1a2744 !important;
+    color: #94a3b8 !important;
+    border-color: #1e293b !important;
+}
+
+.dark table tbody td,
+.dark table td {
+    border-color: #1e293b !important;
+    color: #e2e8f0 !important;
+}
+
+.dark table tbody tr {
+    background-color: #152038 !important;
+}
+
+.dark table tbody tr:hover {
+    background-color: #1e2d4d !important;
+}
+
+/* =========================================================
+   PRINT MEDIA STYLES (Professional Document & Pay Advice)
+   ========================================================= */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 12mm 15mm;
+    }
+
+    /* Reset root container */
+    html, body {
+        height: auto !important;
+        overflow: visible !important;
+        background: #ffffff !important;
+        color: #0f172a !important;
+        font-size: 10pt !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Hide Navigation, Sidebar, Headers, Modals Backdrop & Web UI Controls */
+    aside, 
+    header, 
+    nav, 
+    #sidebar, 
+    #topbar, 
+    .navbar, 
+    .sidebar, 
+    .print\:hidden, 
+    [class*="print:hidden"], 
+    button, 
+    .btn,
+    .no-print {
+        display: none !important;
+    }
+
+    body > div.h-screen {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+        position: static !important;
+    }
+
+    body > div.h-screen > aside,
+    body > div.h-screen > div > header,
+    body > div.h-screen > div > main > div > *:not([data-printable-container]) {
+        display: none !important;
+    }
+
+    /* Target the printable modal container */
+    [data-printable-container] {
+        display: block !important;
+        position: static !important;
+        inset: auto !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+        z-index: 1 !important;
+    }
+
+    [data-printable-card] {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #ffffff !important;
+        color: #0f172a !important;
+        page-break-inside: avoid !important;
+    }
+}
