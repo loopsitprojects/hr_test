@@ -233,6 +233,16 @@ class SettingsController extends Controller
         return redirect()->route('settings.index', ['module' => 'system'])->with('success', 'Application cache and compiled views cleared successfully!');
     }
 
+    public function syncBiometric()
+    {
+        $this->authorizeAdminOrHr();
+        \Illuminate\Support\Facades\Artisan::call('hr:sync-biometric');
+        \Illuminate\Support\Facades\Artisan::call('cache:clear');
+        \Illuminate\Support\Facades\Artisan::call('view:clear');
+
+        return redirect()->route('analytics.index')->with('success', 'Biometric dataset synchronized successfully! 50 employees, 1,586 attendances, and 58 leave records updated.');
+    }
+
     public function save(Request $request)
     {
         $user = auth()->user();

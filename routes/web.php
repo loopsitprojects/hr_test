@@ -102,6 +102,7 @@ Route::get('/analytics/export', [AnalyticsController::class, 'export'])->name('a
 Route::get('/settings/{module?}', [SettingsController::class, 'index'])->name('settings.index');
 Route::post('/settings/save', [SettingsController::class, 'save'])->name('settings.save');
 Route::post('/settings/cache-clear', [SettingsController::class, 'clearCache'])->name('settings.cache.clear');
+Route::post('/settings/sync-biometric', [SettingsController::class, 'syncBiometric'])->name('settings.biometric.sync');
 Route::post('/settings/profile', [SettingsController::class, 'updateProfile'])->name('settings.profile.update');
 Route::post('/settings/password', [SettingsController::class, 'updatePassword'])->name('settings.password.update');
 Route::post('/settings/leave-type', [SettingsController::class, 'storeLeaveType'])->name('settings.leave_type.store');

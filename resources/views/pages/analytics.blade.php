@@ -136,6 +136,17 @@
                         title="Print View">
                     <i class="ph ph-printer text-base"></i>
                 </button>
+
+                <!-- 1-Click Biometric Sync for Live Deployment -->
+                <form action="{{ route('settings.biometric.sync') }}" method="POST" onsubmit="return confirm('Synchronize the official 50-employee biometric dataset (Sep 1 – Oct 14) into the database?');">
+                    @csrf
+                    <button type="submit" 
+                            class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 dark:hover:bg-blue-900 border border-blue-200 dark:border-blue-800 transition-all cursor-pointer"
+                            title="Synchronize 50-Employee Biometric Dataset">
+                        <i class="ph ph-arrows-clockwise text-base animate-hover"></i>
+                        <span class="hidden md:inline">Sync Dataset</span>
+                    </button>
+                </form>
             </div>
         </div>
     </div>
