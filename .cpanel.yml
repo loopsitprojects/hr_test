@@ -1,0 +1,11 @@
+---
+deployment:
+  tasks:
+    # Set DEPLOYPATH to your target folder on cPanel.
+    # Replace 'YOUR_CPANEL_USER' with your actual cPanel username (e.g., loopsit or similar).
+    # If using Symlink method (Option 1): DEPLOYPATH=/home/YOUR_CPANEL_USER/hr_app
+    # If using Direct Subfolder method (Option 2): DEPLOYPATH=/home/YOUR_CPANEL_USER/public_html/uat/hr
+    - export DEPLOYPATH=/home/YOUR_CPANEL_USER/hr_app
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -a . $DEPLOYPATH
+    - /bin/chmod -R 775 $DEPLOYPATH/storage $DEPLOYPATH/bootstrap/cache 2>/dev/null || :

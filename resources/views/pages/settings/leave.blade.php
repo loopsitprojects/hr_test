@@ -633,7 +633,7 @@ function holidayCalendar() {
         },
 
         fetchMonthHolidays() {
-            fetch(`/settings/holidays/json?year=${this.year}&month=${this.month}`)
+            fetch(`{{ url('/settings/holidays/json') }}?year=${this.year}&month=${this.month}`)
                 .then(r => r.json())
                 .then(data => {
                     if (data.success && data.holidays) {
@@ -675,7 +675,7 @@ function holidayCalendar() {
                     mercVal = dt ? (dt.is_mercantile ?? true) : true;
                 }
 
-                const response = await fetch('/settings/holidays/assign', {
+                const response = await fetch(`{{ url('/settings/holidays/assign') }}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -744,7 +744,7 @@ function holidayCalendar() {
             }
 
             try {
-                const res = await fetch('/settings/day-types', {
+                const res = await fetch(`{{ url('/settings/day-types') }}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -784,7 +784,7 @@ function holidayCalendar() {
             }
 
             try {
-                const res = await fetch(`/settings/day-types/${this.editingDayType.id}`, {
+                const res = await fetch(`{{ url('/settings/day-types') }}/${this.editingDayType.id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -813,7 +813,7 @@ function holidayCalendar() {
             if (!confirm(`Permanently delete day type "${dt.name}"?`)) return;
 
             try {
-                const res = await fetch(`/settings/day-types/${dt.id}`, {
+                const res = await fetch(`{{ url('/settings/day-types') }}/${dt.id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',

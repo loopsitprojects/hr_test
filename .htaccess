@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Forward root and sub-requests to public/
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^$ public/index.php [L]
+
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Security: Block direct access to sensitive configuration files
+<FilesMatch "^\.(env|git|editorconfig)|composer\.(json|lock)|package(-lock)?\.json|phpunit\.xml|vite\.config\.js">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block access to internal application directories if deployed directly to web root
+RedirectMatch 403 ^/(database|storage|bootstrap|app|routes|config|tests|Modules)/

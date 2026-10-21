@@ -422,7 +422,7 @@
                     },
                     async markAsRead(id, link) {
                         try {
-                            await fetch(`/notifications/${id}/read`, {
+                            await fetch(`{{ url('/notifications') }}/${id}/read`, {
                                 method: 'POST',
                                 headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' }
                             });
