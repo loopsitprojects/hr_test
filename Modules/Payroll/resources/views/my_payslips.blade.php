@@ -78,7 +78,26 @@
                 <p class="text-xs text-slate-400 font-medium">All monthly salary advices generated for your profile</p>
             </div>
 
-            <div class="flex items-center gap-2.5">
+            <div class="flex flex-wrap items-center gap-2.5">
+                @if(isset($allEmployees) && $allEmployees->isNotEmpty())
+                <!-- Employee Switcher (for HR Lead / Super Admin) -->
+                <form method="GET" action="{{ route('payroll.my_payslips') }}" class="flex items-center">
+                    @if(request('year') && request('year') !== 'All')
+                        <input type="hidden" name="year" value="{{ request('year') }}">
+                    @endif
+                    <div class="relative flex items-center">
+                        <i class="ph ph-user absolute left-2.5 text-slate-400 text-xs pointer-events-none"></i>
+                        <select name="employee_id" onchange="this.form.submit()" class="pl-7 pr-4 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">
+                            @foreach($allEmployees as $emp)
+                                <option value="{{ $emp->id }}" {{ $employee && $employee->id == $emp->id ? 'selected' : '' }}>
+                                    {{ $emp->user->name ?? 'Emp #'.$emp->id }} ({{ $emp->employee_id_number }})
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </form>
+                @endif
+
                 <!-- Search input -->
                 <div class="relative">
                     <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
@@ -90,6 +109,9 @@
 
                 <!-- Year Filter Dropdown -->
                 <form method="GET" action="{{ route('payroll.my_payslips') }}" class="flex items-center">
+                    @if(request('employee_id'))
+                        <input type="hidden" name="employee_id" value="{{ request('employee_id') }}">
+                    @endif
                     <select name="year" onchange="this.form.submit()" class="bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">
                         <option value="All" {{ ($yearFilter ?? 'All') === 'All' ? 'selected' : '' }}>All Years</option>
                         @foreach($availableYears as $yr)

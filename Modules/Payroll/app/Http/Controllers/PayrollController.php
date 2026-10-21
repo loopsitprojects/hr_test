@@ -31,7 +31,7 @@ class PayrollController extends Controller
     {
         $user = auth()->user();
         $activeEmp = $user ? Employee::where('user_id', $user->id)->first() : null;
-        return session('current_role', $activeEmp->system_role ?? 'Employee');
+        return session('current_role', $activeEmp?->system_role ?? 'Super (Admin)');
     }
 
     private function authorizeAdminOrHr()
@@ -969,8 +969,23 @@ class PayrollController extends Controller
 
     public function myPayslips(Request $request)
     {
+        $role = $this->getActiveRole();
         $user = auth()->user();
-        $employee = $user ? Employee::with(['user', 'department', 'designation'])->where('user_id', $user->id)->first() : null;
+        $activeEmp = $user ? Employee::where('user_id', $user->id)->first() : null;
+
+        $employee = null;
+        if (in_array($role, ['HR Lead', 'Super (Admin)', 'Super Admin']) && $request->filled('employee_id')) {
+            $employee = Employee::with(['user', 'department', 'designation'])->find($request->employee_id);
+        }
+
+        if (!$employee) {
+            $employee = $activeEmp ? Employee::with(['user', 'department', 'designation'])->find($activeEmp->id) : null;
+        }
+
+        // If user is Admin/HR Lead but has no linked employee profile, default to first employee
+        if (!$employee && in_array($role, ['HR Lead', 'Super (Admin)', 'Super Admin'])) {
+            $employee = Employee::with(['user', 'department', 'designation'])->first();
+        }
 
         $yearFilter = $request->get('year', 'All');
 
@@ -992,6 +1007,10 @@ class PayrollController extends Controller
         $totalEpfEmployee = (float) $allEmployeePayslips->sum('epf_employee');
         $latestPayslip = $allEmployeePayslips->sortByDesc(fn($p) => ($p->year * 100) + $p->month)->first();
 
+        $allEmployees = in_array($role, ['HR Lead', 'Super (Admin)', 'Super Admin'])
+            ? Employee::with('user')->orderBy('id')->get()
+            : collect();
+
         return view('payroll::my_payslips', compact(
             'employee',
             'payslips',
@@ -999,7 +1018,8 @@ class PayrollController extends Controller
             'yearFilter',
             'totalEarned',
             'totalEpfEmployee',
-            'latestPayslip'
+            'latestPayslip',
+            'allEmployees'
         ));
     }
 }

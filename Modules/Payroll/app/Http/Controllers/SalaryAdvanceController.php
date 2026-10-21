@@ -15,7 +15,7 @@ class SalaryAdvanceController extends Controller
     {
         $user = auth()->user();
         $activeEmp = $user ? Employee::where('user_id', $user->id)->first() : null;
-        return session('current_role', $activeEmp->system_role ?? 'Employee');
+        return session('current_role', $activeEmp?->system_role ?? 'Super (Admin)');
     }
 
     private function authorizeAdminOrHr()

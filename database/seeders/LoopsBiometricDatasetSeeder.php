@@ -439,6 +439,17 @@ class LoopsBiometricDatasetSeeder extends Seeder
         DB::table('users')->truncate();
         DB::table('users')->insert([
             [
+                'id' => 1,
+                'name' => 'Super Admin',
+                'username' => 'admin',
+                'email' => 'admin@loopshr.com',
+                'email_verified_at' => null,
+                'password' => '$2y$12$IvK09kzfiQ9.tK/RFcpbrOsBI7CJTtDOixfmX7paKobnZZ1uCnxXi',
+                'remember_token' => null,
+                'created_at' => '2026-08-24 10:35:55',
+                'updated_at' => '2026-10-21 10:07:24',
+            ],
+            [
                 'id' => 3,
                 'name' => 'Supuni Rathnayake',
                 'username' => 'supuni',
@@ -992,6 +1003,47 @@ class LoopsBiometricDatasetSeeder extends Seeder
 
         DB::table('employees')->truncate();
         DB::table('employees')->insert([
+            [
+                'id' => 1,
+                'user_id' => 1,
+                'employee_id_number' => 'ADM-001',
+                'title' => 'Mr.',
+                'date_of_birth' => '1990-01-01',
+                'nic_passport' => null,
+                'phone_number' => null,
+                'emergency_contact' => null,
+                'profile_picture' => null,
+                'department_id' => 3,
+                'designation_id' => 1,
+                'system_role' => 'Super (Admin)',
+                'payment_method' => 'Bank Transfer',
+                'reporting_person_id' => null,
+                'joined_date' => '2020-01-01',
+                'epf_registration_no' => 'EPF-001',
+                'job_category' => 'Executive',
+                'staff_category' => 'Management',
+                'increment_amount' => '0.00',
+                'promotion_designation' => null,
+                'promotion_date' => null,
+                'basic_salary' => '250000.00',
+                'increments_basic' => '0.00',
+                'budget_allowance' => '0.00',
+                'fixed_allowance' => '25000.00',
+                'travelling_allowance' => '15000.00',
+                'cost_of_living_allowance' => '10000.00',
+                'increments_allowance' => '0.00',
+                'other_allowance' => '0.00',
+                'apit_tax' => '0.00',
+                'bank_name' => 'Commercial Bank',
+                'bank_branch' => 'Colombo 03',
+                'account_number' => '1000293847',
+                'account_holder_name' => 'Super Admin',
+                'higher_education' => 'B.Sc. in Management & IT',
+                'professional_qualifications' => 'Chartered HR, PMP',
+                'created_at' => '2026-08-24 10:35:55',
+                'updated_at' => '2026-10-21 10:07:24',
+                'cost_classification' => 'Indirect',
+            ],
             [
                 'id' => 3,
                 'user_id' => 3,
@@ -37859,5 +37911,8 @@ class LoopsBiometricDatasetSeeder extends Seeder
 
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
         $this->command?->info('Loops Digital 50 employees, 1,586 attendances, and 58 leaves seeded successfully.');
+
+        $this->call(\Modules\Payroll\Database\Seeders\PayrollDatabaseSeeder::class);
+        $this->command?->info('Loops Digital complete company payroll cycles and employee payslips seeded successfully.');
     }
 }
