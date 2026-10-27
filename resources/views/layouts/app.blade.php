@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-slate-50 overflow-hidden">
+<html lang="en" class="h-full bg-[#e8ecf5] overflow-hidden">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,9 +37,59 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         [x-cloak] { display: none !important; }
+
+        /* =====================================================
+           Executive SaaS Card Elevation & Visual Depth Layer
+           Eliminates card-canvas blend by creating clear 
+           contrast between #eaedf6 canvas and elevated #ffffff cards
+        ===================================================== */
+
+        /* Canvas depth */
+        main {
+            background-color: #eaedf6;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(220, 228, 248, 0.6) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(224, 231, 248, 0.5) 0px, transparent 50%);
+        }
+        .dark main {
+            background-color: #070b14;
+            background-image: none;
+        }
+
+        /* Universal Elevation for white cards inside main */
+        main .bg-white.rounded-xl,
+        main .bg-white.rounded-2xl,
+        main .bg-white.rounded-3xl {
+            box-shadow: 
+                0 1px 3px 0 rgba(15, 23, 42, 0.04),
+                0 6px 18px -3px rgba(15, 23, 42, 0.08),
+                0 0 0 1px rgba(15, 23, 42, 0.06);
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hover elevation lift for interactive cards */
+        main .bg-white.rounded-xl:hover,
+        main .bg-white.rounded-2xl:hover {
+            box-shadow: 
+                0 4px 8px 0 rgba(15, 23, 42, 0.05),
+                0 14px 28px -4px rgba(15, 23, 42, 0.12),
+                0 0 0 1px rgba(15, 23, 42, 0.08);
+        }
+
+        /* Dark mode overrides */
+        .dark main .bg-white.rounded-xl,
+        .dark main .bg-white.rounded-2xl {
+            box-shadow: none;
+        }
+        .dark main .bg-\[#111927\] {
+            box-shadow: 
+                0 1px 3px 0 rgba(0, 0, 0, 0.3),
+                0 8px 24px -4px rgba(0, 0, 0, 0.35),
+                0 0 0 1px rgba(255, 255, 255, 0.06);
+        }
     </style>
 </head>
-<body class="h-screen overflow-hidden antialiased text-slate-800 bg-[#f4f6fa] dark:bg-[#070b14] dark:text-slate-200 transition-colors duration-200"
+<body class="h-screen overflow-hidden antialiased text-slate-800 bg-[#e8ecf5] dark:bg-[#070b14] dark:text-slate-200 transition-colors duration-200"
       x-data="{ 
           role: '{{ session('current_role', 'Super (Admin)') }}', 
           theme: localStorage.getItem('theme') || 'light',

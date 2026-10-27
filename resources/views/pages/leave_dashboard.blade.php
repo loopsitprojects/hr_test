@@ -181,28 +181,28 @@
     </div>
 
     <!-- Top Leave Summary Cards (6 Quotas - Sleek Linear Micro-Meters) -->
-    <div class="shrink-0 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2.5">
+    <div class="shrink-0 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
         
         <!-- 1. Annual Leave -->
         <div @click="openQuotaModal('ANNUAL', 'Annual Leave', 'plane', 'blue', {{ $annualData['total'] }}, {{ $annualData['used'] }}, {{ $annualData['available'] }}, {{ $annualData['cf'] }}, 'days')"
-             class="group bg-white dark:bg-[#111927] p-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-blue-400 dark:hover:border-blue-500/70 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-0.5 min-h-[105px]">
+             class="group bg-white dark:bg-[#111927] p-3.5 rounded-2xl border-t-4 border-t-blue-500 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg hover:border-blue-400 dark:hover:border-blue-500 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-1 min-h-[112px]">
             <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-lg bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100/80 dark:border-blue-900/40">
-                    <i data-lucide="plane" class="w-3.5 h-3.5"></i>
+                <div class="w-7 h-7 rounded-xl bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-900/50">
+                    <i data-lucide="plane" class="w-4 h-4"></i>
                 </div>
                 <span class="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">Annual Leave</span>
             </div>
 
-            <div class="my-1 flex items-baseline gap-1.5">
+            <div class="my-1.5 flex items-baseline gap-1.5">
                 <span class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white leading-none tracking-tight">{{ $annualData['available'] }}</span>
-                <span class="text-[10px] font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/70 px-1.5 py-0.5 rounded">days left</span>
+                <span class="text-[10px] font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/70 px-1.5 py-0.5 rounded-md border border-blue-200/60 dark:border-blue-900/40">days left</span>
             </div>
 
             <div class="space-y-1">
                 <div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div class="h-full bg-blue-600 dark:bg-blue-500 rounded-full transition-all duration-500" style="width: {{ $annualData['pct'] }}%"></div>
                 </div>
-                <div class="flex items-center justify-between text-[9px] font-semibold text-slate-400 dark:text-slate-500">
+                <div class="flex items-center justify-between text-[10px] font-semibold text-slate-400 dark:text-slate-500">
                     <span>{{ $annualData['used'] }} used</span>
                     <span>{{ $annualData['pct'] }}% left</span>
                 </div>
@@ -211,24 +211,24 @@
 
         <!-- 2. Casual Leave -->
         <div @click="openQuotaModal('CASUAL', 'Casual Leave', 'calendar-check', 'purple', {{ $casualData['total'] }}, {{ $casualData['used'] }}, {{ $casualData['available'] }}, {{ $casualData['cf'] }}, 'days')"
-             class="group bg-white dark:bg-[#111927] p-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-purple-400 dark:hover:border-purple-500/70 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-0.5 min-h-[105px]">
+             class="group bg-white dark:bg-[#111927] p-3.5 rounded-2xl border-t-4 border-t-purple-500 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg hover:border-purple-400 dark:hover:border-purple-500 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-1 min-h-[112px]">
             <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-lg bg-purple-50 dark:bg-purple-950/70 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 border border-purple-100/80 dark:border-purple-900/40">
-                    <i data-lucide="calendar-check" class="w-3.5 h-3.5"></i>
+                <div class="w-7 h-7 rounded-xl bg-purple-50 dark:bg-purple-950/70 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0 border border-purple-100 dark:border-purple-900/50">
+                    <i data-lucide="calendar-check" class="w-4 h-4"></i>
                 </div>
                 <span class="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">Casual Leave</span>
             </div>
 
-            <div class="my-1 flex items-baseline gap-1.5">
+            <div class="my-1.5 flex items-baseline gap-1.5">
                 <span class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white leading-none tracking-tight">{{ $casualData['available'] }}</span>
-                <span class="text-[10px] font-bold text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950/70 px-1.5 py-0.5 rounded">days left</span>
+                <span class="text-[10px] font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/70 px-1.5 py-0.5 rounded-md border border-purple-200/60 dark:border-purple-900/40">days left</span>
             </div>
 
             <div class="space-y-1">
                 <div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div class="h-full bg-purple-600 dark:bg-purple-500 rounded-full transition-all duration-500" style="width: {{ $casualData['pct'] }}%"></div>
                 </div>
-                <div class="flex items-center justify-between text-[9px] font-semibold text-slate-400 dark:text-slate-500">
+                <div class="flex items-center justify-between text-[10px] font-semibold text-slate-400 dark:text-slate-500">
                     <span>{{ $casualData['used'] }} used</span>
                     <span>{{ $casualData['pct'] }}% left</span>
                 </div>
@@ -237,24 +237,24 @@
 
         <!-- 3. Medical Leave -->
         <div @click="openQuotaModal('MEDICAL', 'Medical Leave', 'activity', 'emerald', {{ $medicalData['total'] }}, {{ $medicalData['used'] }}, {{ $medicalData['available'] }}, {{ $medicalData['cf'] }}, 'days')"
-             class="group bg-white dark:bg-[#111927] p-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-emerald-400 dark:hover:border-emerald-500/70 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-0.5 min-h-[105px]">
+             class="group bg-white dark:bg-[#111927] p-3.5 rounded-2xl border-t-4 border-t-emerald-500 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg hover:border-emerald-400 dark:hover:border-emerald-500 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-1 min-h-[112px]">
             <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-100/80 dark:border-emerald-900/40">
-                    <i data-lucide="activity" class="w-3.5 h-3.5"></i>
+                <div class="w-7 h-7 rounded-xl bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-100 dark:border-emerald-900/50">
+                    <i data-lucide="activity" class="w-4 h-4"></i>
                 </div>
                 <span class="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">Medical Leave</span>
             </div>
 
-            <div class="my-1 flex items-baseline gap-1.5">
+            <div class="my-1.5 flex items-baseline gap-1.5">
                 <span class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white leading-none tracking-tight">{{ $medicalData['available'] }}</span>
-                <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/70 px-1.5 py-0.5 rounded">days left</span>
+                <span class="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/70 px-1.5 py-0.5 rounded-md border border-emerald-200/60 dark:border-emerald-900/40">days left</span>
             </div>
 
             <div class="space-y-1">
                 <div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div class="h-full bg-emerald-600 dark:bg-emerald-500 rounded-full transition-all duration-500" style="width: {{ $medicalData['pct'] }}%"></div>
                 </div>
-                <div class="flex items-center justify-between text-[9px] font-semibold text-slate-400 dark:text-slate-500">
+                <div class="flex items-center justify-between text-[10px] font-semibold text-slate-400 dark:text-slate-500">
                     <span>{{ $medicalData['used'] }} used</span>
                     <span>{{ $medicalData['pct'] }}% left</span>
                 </div>
@@ -263,24 +263,24 @@
 
         <!-- 4. Short Leave -->
         <div @click="openQuotaModal('SHORT', 'Short Leave', 'clock', 'amber', {{ $shortData['total'] }}, {{ $shortData['used'] }}, {{ $shortData['available'] }}, {{ $shortData['cf'] }}, 'per month')"
-             class="group bg-white dark:bg-[#111927] p-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-amber-400 dark:hover:border-amber-500/70 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-0.5 min-h-[105px]">
+             class="group bg-white dark:bg-[#111927] p-3.5 rounded-2xl border-t-4 border-t-amber-500 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg hover:border-amber-400 dark:hover:border-amber-500 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-1 min-h-[112px]">
             <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-lg bg-amber-50 dark:bg-amber-950/70 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 border border-amber-100/80 dark:border-amber-900/40">
-                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                <div class="w-7 h-7 rounded-xl bg-amber-50 dark:bg-amber-950/70 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 border border-amber-100 dark:border-amber-900/50">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
                 </div>
                 <span class="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">Short Leave</span>
             </div>
 
-            <div class="my-1 flex items-baseline gap-1.5">
+            <div class="my-1.5 flex items-baseline gap-1.5">
                 <span class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white leading-none tracking-tight">{{ $shortData['available'] }}</span>
-                <span class="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/70 px-1.5 py-0.5 rounded">/ month</span>
+                <span class="text-[10px] font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/70 px-1.5 py-0.5 rounded-md border border-amber-200/60 dark:border-amber-900/40">/ month</span>
             </div>
 
             <div class="space-y-1">
                 <div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div class="h-full bg-amber-500 dark:bg-amber-400 rounded-full transition-all duration-500" style="width: {{ $shortData['pct'] }}%"></div>
                 </div>
-                <div class="flex items-center justify-between text-[9px] font-semibold text-slate-400 dark:text-slate-500">
+                <div class="flex items-center justify-between text-[10px] font-semibold text-slate-400 dark:text-slate-500">
                     <span>{{ $shortData['used'] }} used</span>
                     <span>{{ $shortData['pct'] }}% left</span>
                 </div>
@@ -289,24 +289,24 @@
 
         <!-- 5. Duty Leave -->
         <div @click="openQuotaModal('DUTY', 'Duty Leave', 'briefcase', 'rose', {{ $dutyData['total'] }}, {{ $dutyData['used'] }}, {{ $dutyData['available'] }}, {{ $dutyData['cf'] }}, 'days')"
-             class="group bg-white dark:bg-[#111927] p-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-rose-400 dark:hover:border-rose-500/70 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-0.5 min-h-[105px]">
+             class="group bg-white dark:bg-[#111927] p-3.5 rounded-2xl border-t-4 border-t-rose-500 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg hover:border-rose-400 dark:hover:border-rose-500 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-1 min-h-[112px]">
             <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-lg bg-rose-50 dark:bg-rose-950/70 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 border border-rose-100/80 dark:border-rose-900/40">
-                    <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+                <div class="w-7 h-7 rounded-xl bg-rose-50 dark:bg-rose-950/70 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0 border border-rose-100 dark:border-rose-900/50">
+                    <i data-lucide="briefcase" class="w-4 h-4"></i>
                 </div>
                 <span class="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">Duty Leave</span>
             </div>
 
-            <div class="my-1 flex items-baseline gap-1.5">
+            <div class="my-1.5 flex items-baseline gap-1.5">
                 <span class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white leading-none tracking-tight">{{ $dutyData['available'] }}</span>
-                <span class="text-[10px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/70 px-1.5 py-0.5 rounded">days left</span>
+                <span class="text-[10px] font-bold text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/70 px-1.5 py-0.5 rounded-md border border-rose-200/60 dark:border-rose-900/40">days left</span>
             </div>
 
             <div class="space-y-1">
                 <div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div class="h-full bg-rose-500 dark:bg-rose-400 rounded-full transition-all duration-500" style="width: {{ $dutyData['pct'] }}%"></div>
                 </div>
-                <div class="flex items-center justify-between text-[9px] font-semibold text-slate-400 dark:text-slate-500">
+                <div class="flex items-center justify-between text-[10px] font-semibold text-slate-400 dark:text-slate-500">
                     <span>{{ $dutyData['used'] }} used</span>
                     <span>{{ $dutyData['pct'] }}% left</span>
                 </div>
@@ -315,24 +315,24 @@
 
         <!-- 6. Lieu Leave -->
         <div @click="openQuotaModal('LIEU', 'Lieu Leave', 'refresh-cw', 'teal', {{ $lieuData['total'] }}, {{ $lieuData['used'] }}, {{ $lieuData['available'] }}, {{ $lieuData['cf'] }}, 'days')"
-             class="group bg-white dark:bg-[#111927] p-3 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-xs hover:shadow-md hover:border-teal-400 dark:hover:border-teal-500/70 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-0.5 min-h-[105px]">
+             class="group bg-white dark:bg-[#111927] p-3.5 rounded-2xl border-t-4 border-t-teal-500 border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-lg hover:border-teal-400 dark:hover:border-teal-500 flex flex-col justify-between transition-all duration-200 cursor-pointer hover:-translate-y-1 min-h-[112px]">
             <div class="flex items-center gap-2">
-                <div class="w-6 h-6 rounded-lg bg-teal-50 dark:bg-teal-950/70 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 border border-teal-100/80 dark:border-teal-900/40">
-                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+                <div class="w-7 h-7 rounded-xl bg-teal-50 dark:bg-teal-950/70 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 border border-teal-100 dark:border-teal-900/50">
+                    <i data-lucide="refresh-cw" class="w-4 h-4"></i>
                 </div>
                 <span class="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">Lieu Leave</span>
             </div>
 
-            <div class="my-1 flex items-baseline gap-1.5">
+            <div class="my-1.5 flex items-baseline gap-1.5">
                 <span class="text-2xl lg:text-3xl font-black text-slate-900 dark:text-white leading-none tracking-tight">{{ $lieuData['available'] }}</span>
-                <span class="text-[10px] font-bold text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/70 px-1.5 py-0.5 rounded">days left</span>
+                <span class="text-[10px] font-bold text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/70 px-1.5 py-0.5 rounded-md border border-teal-200/60 dark:border-teal-900/40">days left</span>
             </div>
 
             <div class="space-y-1">
                 <div class="h-1.5 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div class="h-full bg-teal-500 dark:bg-teal-400 rounded-full transition-all duration-500" style="width: {{ $lieuData['pct'] }}%"></div>
                 </div>
-                <div class="flex items-center justify-between text-[9px] font-semibold text-slate-400 dark:text-slate-500">
+                <div class="flex items-center justify-between text-[10px] font-semibold text-slate-400 dark:text-slate-500">
                     <span>{{ $lieuData['used'] }} used</span>
                     <span>{{ $lieuData['pct'] }}% left</span>
                 </div>
@@ -345,7 +345,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-2">
 
         <!-- Left 2 Cols: Monthly Calendar View -->
-        <div class="lg:col-span-2 bg-white dark:bg-[#111927] rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4 sm:p-5 shadow-xs flex flex-col justify-between">
+        <div class="lg:col-span-2 bg-white dark:bg-[#111927] rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-md shadow-slate-200/60 dark:shadow-none flex flex-col justify-between">
             <div class="flex flex-col">
                 
                 <!-- Calendar Top Controls Bar (Clean Modern SaaS Header) -->
@@ -395,28 +395,28 @@
 
                 <!-- MODE 1: UNIFIED SAAS GRID VIEW -->
                 <div x-show="viewMode === 'grid'" class="mt-3.5">
-                    <div class="border border-slate-200/90 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-100/60 dark:bg-[#080d19] p-2.5">
+                    <div class="border border-slate-200/90 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-100/70 dark:bg-[#080d19] p-3">
                         <!-- Weekday Headers -->
-                        <div class="grid grid-cols-7 mb-2 text-[11px] font-bold uppercase tracking-wider py-1 text-center select-none">
-                            <div class="text-slate-600 dark:text-slate-400">Mon</div>
-                            <div class="text-slate-600 dark:text-slate-400">Tue</div>
-                            <div class="text-slate-600 dark:text-slate-400">Wed</div>
-                            <div class="text-slate-600 dark:text-slate-400">Thu</div>
-                            <div class="text-slate-600 dark:text-slate-400">Fri</div>
-                            <div class="text-rose-500/90 dark:text-rose-400 font-extrabold">Sat</div>
-                            <div class="text-rose-500/90 dark:text-rose-400 font-extrabold">Sun</div>
+                        <div class="grid grid-cols-7 mb-2 text-[11px] font-bold uppercase tracking-wider py-1.5 text-center select-none">
+                            <div class="text-slate-600 dark:text-slate-400 font-extrabold">Mon</div>
+                            <div class="text-slate-600 dark:text-slate-400 font-extrabold">Tue</div>
+                            <div class="text-slate-600 dark:text-slate-400 font-extrabold">Wed</div>
+                            <div class="text-slate-600 dark:text-slate-400 font-extrabold">Thu</div>
+                            <div class="text-slate-600 dark:text-slate-400 font-extrabold">Fri</div>
+                            <div class="text-rose-500 dark:text-rose-400 font-black">Sat</div>
+                            <div class="text-rose-500 dark:text-rose-400 font-black">Sun</div>
                         </div>
 
-                        <!-- Days Grid (Every cell has subtle blue coloring, drop shadow and distinct outline) -->
-                        <div class="grid grid-cols-7 gap-1.5">
+                        <!-- Days Grid (Every active day is a crisp elevated white tile) -->
+                        <div class="grid grid-cols-7 gap-2">
                             @foreach($calendarDays as $cell)
                                 <div @click="selectedDay = {{ json_encode($cell) }}; dayModalOpen = true"
                                      :class="selectedDay && selectedDay.date === '{{ $cell['date'] }}' ? 'ring-2 ring-blue-500 border-blue-500 dark:border-blue-400 shadow-md z-10' : ''"
-                                     class="min-h-[92px] sm:min-h-[100px] p-2 rounded-xl flex flex-col justify-between transition-all duration-150 cursor-pointer relative group border shadow-xs hover:shadow-md hover:-translate-y-0.5
-                                     {{ !$cell['is_current_month'] ? 'bg-slate-100/40 dark:bg-[#090e1c]/40 border-slate-200/50 dark:border-slate-800/40 shadow-none opacity-40' : '' }}
-                                     {{ $cell['is_current_month'] && $cell['is_today'] ? 'bg-blue-100/70 dark:bg-blue-950/60 border-2 border-blue-500 dark:border-blue-400 shadow-sm' : '' }}
-                                     {{ $cell['is_current_month'] && !$cell['is_today'] && $cell['is_weekend'] ? 'bg-slate-50/90 dark:bg-[#0d1526] border-slate-200/80 dark:border-[#1a2947] hover:bg-slate-100 dark:hover:bg-[#121c32]' : '' }}
-                                     {{ $cell['is_current_month'] && !$cell['is_today'] && !$cell['is_weekend'] ? 'bg-blue-50/45 dark:bg-[#111c33] border-blue-200/60 dark:border-[#20355c] hover:bg-blue-50/80 dark:hover:bg-[#162544] hover:border-blue-300 dark:hover:border-blue-500/70' : '' }}
+                                     class="min-h-[95px] sm:min-h-[105px] p-2.5 rounded-xl flex flex-col justify-between transition-all duration-150 cursor-pointer relative group border hover:shadow-md hover:-translate-y-0.5
+                                     {{ !$cell['is_current_month'] ? 'bg-transparent border-dashed border-slate-200/50 dark:border-slate-800/40 shadow-none opacity-30 cursor-default' : '' }}
+                                     {{ $cell['is_current_month'] && $cell['is_today'] ? 'bg-blue-50/90 dark:bg-blue-950/80 border-2 border-blue-600 dark:border-blue-400 shadow-sm shadow-blue-500/15' : '' }}
+                                     {{ $cell['is_current_month'] && !$cell['is_today'] && $cell['is_weekend'] ? 'bg-slate-100/60 dark:bg-[#0e1627] border-slate-200/80 dark:border-slate-800/80 shadow-[0_1px_2px_rgba(15,23,42,0.04)] hover:bg-slate-100' : '' }}
+                                     {{ $cell['is_current_month'] && !$cell['is_today'] && !$cell['is_weekend'] ? 'bg-white dark:bg-[#131d31] border-slate-200 dark:border-slate-700/70 shadow-[0_1px_3px_rgba(15,23,42,0.06)] hover:border-blue-400 dark:hover:border-blue-500/80 hover:bg-blue-50/20' : '' }}
                                 ">
                                     <!-- Day Header: Date Number -->
                                     <div class="flex items-center justify-between mb-1.5">
@@ -426,7 +426,7 @@
                                         @elseif(!$cell['is_current_month'])
                                             <span class="text-xs font-medium text-slate-400 dark:text-slate-600 pl-0.5">{{ $cell['day'] }}</span>
                                         @else
-                                            <span class="text-xs font-semibold {{ $cell['is_weekend'] ? 'text-rose-500 dark:text-rose-400' : 'text-slate-700 dark:text-slate-200' }} pl-0.5">{{ $cell['day'] }}</span>
+                                            <span class="text-xs font-bold {{ $cell['is_weekend'] ? 'text-rose-500 dark:text-rose-400' : 'text-slate-800 dark:text-slate-200' }} pl-0.5">{{ $cell['day'] }}</span>
                                         @endif
                                     </div>
 
@@ -522,27 +522,29 @@
                 $canAddHoliday = in_array($activeRole, ['HR Lead', 'Super (Admin)']);
             @endphp
             <div class="grid {{ $canAddHoliday ? 'grid-cols-2' : 'grid-cols-1' }} gap-2.5 shrink-0">
-                <button @click="openApplyModal('ANNUAL')" class="bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer">
+                <button @click="openApplyModal('ANNUAL')" class="bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-4 rounded-xl font-black text-xs flex items-center justify-center gap-2 shadow-md shadow-emerald-600/30 hover:shadow-lg hover:shadow-emerald-600/40 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer tracking-wide">
                     <i data-lucide="plus" class="w-4 h-4 stroke-[3]"></i>
                     <span>Apply Leave</span>
                 </button>
 
                 @if($canAddHoliday)
-                <button @click="addCompanyLeaveModal = true" class="bg-white hover:bg-slate-50 text-slate-700 dark:bg-rose-500 dark:hover:bg-rose-600 dark:text-white border border-slate-200/90 dark:border-transparent py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer">
-                    <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+                <button @click="addCompanyLeaveModal = true" class="bg-white hover:bg-slate-50 text-slate-800 dark:bg-rose-500 dark:hover:bg-rose-600 dark:text-white border border-slate-200/90 dark:border-transparent py-3 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer">
+                    <i data-lucide="calendar-plus" class="w-4 h-4 text-rose-500 dark:text-white"></i>
                     <span>Add Holiday</span>
                 </button>
                 @endif
             </div>
 
             <!-- Pending Approvals Card -->
-            <div class="bg-white dark:bg-[#111927] rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4 shadow-xs flex flex-col space-y-3">
-                <div class="flex items-center justify-between shrink-0">
+            <div class="bg-white dark:bg-[#111927] rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4.5 shadow-sm hover:shadow-md transition-all flex flex-col space-y-3">
+                <div class="flex items-center justify-between shrink-0 pb-1 border-b border-slate-100 dark:border-slate-800">
                     <div class="flex items-center gap-2">
-                        <i data-lucide="bookmark" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
-                        <h3 class="text-xs font-bold text-slate-800 dark:text-slate-100">Pending Approval Requests</h3>
+                        <div class="w-6 h-6 rounded-lg bg-blue-50 dark:bg-blue-950/70 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                            <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
+                        </div>
+                        <h3 class="text-xs font-bold text-slate-900 dark:text-slate-100">Pending Approval Requests</h3>
                     </div>
-                    <span class="bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 text-[10px] font-bold px-2 py-0.5 rounded-full">{{ count($pendingRequests) }}</span>
+                    <span class="bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 text-[10px] font-extrabold px-2 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-800/60">{{ count($pendingRequests) }}</span>
                 </div>
 
                 <!-- Approval Requests List -->
@@ -553,7 +555,7 @@
                     @endphp
                     
                     @forelse($pendingRequests as $req)
-                        <div class="bg-slate-50/70 hover:bg-slate-100/80 dark:bg-[#0f172a] dark:hover:bg-[#182338] border border-slate-200/70 dark:border-slate-800 p-3 rounded-xl flex items-center justify-between text-xs transition-colors">
+                        <div class="bg-slate-50/90 hover:bg-slate-100 dark:bg-[#0f172a] dark:hover:bg-[#182338] border border-slate-200/80 dark:border-slate-800 p-3 rounded-xl flex items-center justify-between text-xs transition-colors shadow-2xs">
                             <div>
                                 <div class="font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
                                     <span>{{ $req->employee->user->name ?? 'Employee' }}</span>
@@ -565,7 +567,7 @@
                                 </div>
                             </div>
                             @if($isManagerOrAdmin)
-                                <a href="{{ route('approvals.index') }}" class="bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg transition-colors shadow-2xs flex items-center gap-1 shrink-0 cursor-pointer">
+                                <a href="{{ route('approvals.index') }}" class="bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg transition-colors shadow-xs flex items-center gap-1 shrink-0 cursor-pointer">
                                     <span>Review</span>
                                     <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                                 </a>
@@ -576,19 +578,25 @@
                             @endif
                         </div>
                     @empty
-                        <div class="text-[10px] text-slate-400 dark:text-slate-500 italic py-4 text-center bg-slate-50/50 dark:bg-[#0f172a] rounded-xl border border-slate-200/80 dark:border-slate-800">
-                            {{ $isManagerOrAdmin ? 'No pending approval requests.' : 'You have no pending leave applications.' }}
+                        <div class="py-5 px-3 bg-slate-50/80 dark:bg-[#0f172a]/70 rounded-xl border border-dashed border-slate-200 dark:border-slate-800 text-center flex flex-col items-center justify-center gap-1">
+                            <i data-lucide="inbox" class="w-4 h-4 text-slate-400"></i>
+                            <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                                {{ $isManagerOrAdmin ? 'No pending approval requests.' : 'You have no pending leave applications.' }}
+                            </span>
+                            <span class="text-[10px] text-slate-400">All submissions are up to date</span>
                         </div>
                     @endforelse
                 </div>
             </div>
 
             <!-- BOTTOM CARD: TODAY'S EVENTS & BIRTHDAYS (COMPACT CARD FOR TODAY) -->
-            <div class="bg-white dark:bg-[#111927] rounded-2xl border border-slate-200/90 dark:border-slate-800 p-3.5 shadow-xs flex flex-col space-y-2">
-                <div class="flex items-center justify-between shrink-0">
+            <div class="bg-white dark:bg-[#111927] rounded-2xl border border-slate-200/90 dark:border-slate-800 p-4.5 shadow-sm hover:shadow-md transition-all flex flex-col space-y-2.5">
+                <div class="flex items-center justify-between shrink-0 pb-1 border-b border-slate-100 dark:border-slate-800">
                     <div class="flex items-center gap-2">
-                        <i data-lucide="sparkles" class="w-4 h-4 text-amber-500 dark:text-amber-400"></i>
-                        <h3 class="text-xs font-bold text-slate-800 dark:text-slate-100">Today's Events & Birthdays</h3>
+                        <div class="w-6 h-6 rounded-lg bg-amber-50 dark:bg-amber-950/70 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        </div>
+                        <h3 class="text-xs font-bold text-slate-900 dark:text-slate-100">Today's Events & Birthdays</h3>
                     </div>
                     <span class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-slate-200/80 dark:border-slate-700" x-text="selectedDay ? selectedDay.formatted_date : '{{ \Carbon\Carbon::now('Asia/Colombo')->format('M d, Y') }}'"></span>
                 </div>
@@ -621,8 +629,10 @@
                                 </div>
                             </template>
                             <template x-if="!selectedDay?.holiday">
-                                <div class="p-3 bg-slate-50 dark:bg-[#0f172a] rounded-xl border border-slate-200/70 dark:border-slate-800 text-center text-xs text-slate-400">
-                                    No upcoming events or birthdays today.
+                                <div class="py-5 px-3 bg-slate-50/80 dark:bg-[#0f172a]/70 rounded-xl border border-dashed border-slate-200 dark:border-slate-800 text-center flex flex-col items-center justify-center gap-1">
+                                    <i data-lucide="calendar" class="w-4 h-4 text-slate-400"></i>
+                                    <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400">No events or birthdays scheduled today</span>
+                                    <span class="text-[10px] text-slate-400">Select any day on calendar to view details</span>
                                 </div>
                             </template>
                         </div>
